@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+    <title>Hello WebSocket</title>
+    <script src="/js/sockjs-0.3.4.js"></script>
+    <script src="/js/stomp.js"></script>
+    <script src="/js/jquery-2.1.4.js"></script>
+    <script src="/js/app.js"></script>
+</head>
+<body onload="connect()">
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+<div>
+    <div>
+        <p>Hello! From index.html</p>
+        <button id="connect" disabled="disabled" onclick="connect();">Connect</button>
+        <button id="disconnect" onclick="disconnect();">Disconnect</button>
+    </div>
+    <div id="conversationDiv">
+
+        <div th:if="${param.error}">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}">
+            You have been logged out.
+        </div>
+
+        <form id="loginForm" name="loginForm" th:if="${param.authenticated == null}">
+            <div><label> User Name : <input id="username" type="text" name="username"/> </label></div>
+            <div><label> Password: <input id="password" type="password" name="password"/> </label></div>
+            <div><button id="login" type="submit">Sign In</button></div>
+        </form>
+
+        <!--<div th:if="${param.authenticated}">-->
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" >Sign Out</button>
+        </form>
+        <!--</div>-->
+
+        <p id="response"></p>
+
+    </div>
+</div>
+</body>
+</html>
