@@ -20,13 +20,4 @@ public class UserController {
     public void login(final ModelMap model) {
         model.addAttribute("authenticated", true);
     }
-
-//
-//    @RequestMapping(method = POST, value = "/login")
-//    @ResponseStatus(OK)
-//    public CasinoLoginDto login(@CurrentPlayer final PlayerUser currentPlayer) {
-//        final PlayerLogon playerLogon = playerService.logonPlayer(currentPlayer.getId(), ipAddress, authToken);
-//        auditService.trackPlayerActivityWithIpAddress(playerLogon.getPlayer(), PlayerActivityType.LOGIN, IpAddressUtils.extract(ipAddress));
-//        return new CasinoLoginDto(playerLogon);
-//    }
 }
