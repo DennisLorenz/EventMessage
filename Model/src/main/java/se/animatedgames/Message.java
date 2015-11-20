@@ -30,6 +30,10 @@ public class Message implements Serializable {
     }
 
     public String toString() {
+        System.out.println("from Message " + input + " " + user);
         return "Message(Input: " + input + ", user: " + user + ")";
+
     }
+
+
 }

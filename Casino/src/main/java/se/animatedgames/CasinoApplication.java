@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @EnableRabbit
-public class CasinoApplication {
+public class    CasinoApplication {
 
     public static void main(String[] args) throws Exception {
         SpringApplication.run(CasinoApplication.class, args);
